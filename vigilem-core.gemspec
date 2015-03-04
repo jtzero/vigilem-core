@@ -12,14 +12,6 @@ Gem::Specification.new do |s|
   s.homepage      = 'http://rubygems.org/gems/vigilem-core'
   s.license       = 'MIT'
   
-  if s.respond_to? :metadata
-    s.metadata = { 
-        "source_code" => "hg@bitbucket.com/jtzero/vigilem-core",
-        "project_page" => "http://bitbucket.com/jtzero/vigilem-core",
-        "bug_tracker" => "http://bitbucket.com/jtzero/vigilem-core/issues"
-      }
-  end
-  
   s.add_dependency 'vigilem-support'
   s.add_dependency 'hashery'
   s.add_dependency 'thread_safe'
