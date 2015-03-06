@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 gemspec
 
-if (ARGV.each {|str| str.gsub!(/^:source$/, 'source') } & (excep = ["--without", "source"]) != excep)
+args = ARGV.map {|str| str.gsub(/^:source$/, 'source') }
+
+if (args & (excep = ["--without", "source"]) != excep)
   group :source do
     if File.exists?("../vigilem-support")
       gem "vigilem-support", :path => "../vigilem-support"
