@@ -28,7 +28,9 @@ module Core
     # @param  [Array] msgs the messages to push out
     # @return [Array] the buffers that got updated
     def demux(buff, *msgs)
-      buffers.except(buff).select {|buffer| buffer.concat(msgs) unless msgs.empty? } 
+      buffers.select do |buffer| 
+        buffer.concat(msgs) if (not msgs.empty?) and (not buffer.equal?(buff))
+      end
     end
     
     extend Support::ObjSpace
