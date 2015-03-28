@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'coveralls', require: false
+
 args = ARGV.map {|str| str.gsub(/^:source$/, 'source') }
 
 if (args & (excep = ["--without", "source"]) != excep)
