@@ -24,13 +24,14 @@ describe Vigilem::Core::EventHandler do
       end
     end
     
-    let!(:register) { subject.on(:my_event, &handler) }
+    before :each do
+      subject.on(:my_event, &handler)
+    end
     
-    describe '#on' do
+    describe '#on/#register' do
       it 'adds a block to the hash with the key == type arg' do
-        expect(subject.type_handles[:my_event].call(:my_event)).to eql(handler.call(:my_event))
+        expect(subject.type_handles[:my_event]).to eql(handler)
       end
-      
     end
     
     describe '#handle' do
