@@ -2,3 +2,4 @@ syntax: glob
 Gemfile.lock
 .yardoc
 pkg/vigilem-core-*.gem
+coverage
