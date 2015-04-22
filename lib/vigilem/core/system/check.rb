@@ -21,10 +21,10 @@ module Core
                     (str_or_regex.to_s == os.to_s)
                 end,
           :input_system => lambda do |name_or_regex|
-                  ((name_or_regex.is_a?(Regexp) and 
+                  !!(((name_or_regex.is_a?(Regexp) and 
                     (stats = Stat.all_available).find {|isys| isys.input_system_name =~ name_or_regex }) or
                     (stats.find {|isys| isys.input_system_name.to_s == name_or_regex.to_s })
-                  )
+                  ))
                 end
         }
     end
